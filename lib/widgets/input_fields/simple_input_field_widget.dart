@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 class SimpleInputFieldWidget extends StatelessWidget {
   const SimpleInputFieldWidget({
     super.key,
-    required this.labelText,
+    this.labelText,
     required this.controller,
     this.hintText,
     this.validateString,
@@ -22,9 +22,11 @@ class SimpleInputFieldWidget extends StatelessWidget {
     this.onTap,
     this.digitsOnly,
     this.stringOnly,
+    this.doubleOnly,
+    this.removeBorder = false,
   });
 
-  final String labelText;
+  final String? labelText;
   final TextEditingController controller;
   final String? hintText;
   final String? validateString;
@@ -42,14 +44,70 @@ class SimpleInputFieldWidget extends StatelessWidget {
   final Function()? onTap;
   final bool? digitsOnly;
   final bool? stringOnly;
+  final bool? doubleOnly;
+  final bool? removeBorder;
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double wt = MediaQuery.of(context).size.width;
+    double ht = MediaQuery.of(context).size.height;
+    // return SizedBox(
+    //   width: width,
+    //   height: height,
+    //   child: TextFormField(
+    //     style: const TextStyle(
+    //       fontSize: 16.0,
+    //       color: Color.fromARGB(255, 17, 17, 17),
+    //       fontWeight: FontWeight.w400,
+    //     ),
+    //     controller: controller,
+    //     focusNode: focusNode,
+    //     obscureText: isPassword ?? false,
+    //     obscuringCharacter: obscureCharacter ?? '*',
+    //     keyboardType: keyboardType,
+    //     onFieldSubmitted: onFieldSubmit,
+    //     inputFormatters: [
+    //       if (stringOnly == true)
+    //         FilteringTextInputFormatter.allow(
+    //           RegExp("[a-z A-Z]"),
+    //         ),
+    //       if (digitsOnly == true) FilteringTextInputFormatter.digitsOnly,
+    //     ],
+    //     onTap: onTap,
+    //     maxLength: maxLength,
+    //     maxLines: maxLines,
+    //     onChanged: onChange,
+    //     validator: validateField!
+    //         ? (value) {
+    //             if (value!.isEmpty) {
+    //               return validateString ?? 'required';
+    //             }
+    //             return null;
+    //           }
+    //         : null,
+    //     decoration: InputDecoration(
+    //       labelText: labelText,
+    //       contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+    //       alignLabelWithHint: true,
+    //       hintText: hintText,
+    //       counterText: '',
+    //       border: const OutlineInputBorder(),
+    //       hintStyle: const TextStyle(
+    //         fontSize: 16.0,
+    //         color: Color.fromARGB(255, 17, 17, 17),
+    //         fontWeight: FontWeight.w400,
+    //       ),
+    //       labelStyle: const TextStyle(
+    //         fontSize: 16.0,
+    //         color: Color.fromARGB(255, 17, 17, 17),
+    //         fontWeight: FontWeight.w400,
+    //       ),
+    //     ),
+    //   ),
+    // );
     return SizedBox(
-      width: width,
-      height: height,
+      width: width ?? wt,
+      height: height ?? (ht * 0.06),
       child: TextFormField(
         style: const TextStyle(
           fontSize: 16.0,
@@ -64,10 +122,10 @@ class SimpleInputFieldWidget extends StatelessWidget {
         onFieldSubmitted: onFieldSubmit,
         inputFormatters: [
           if (stringOnly == true)
-            FilteringTextInputFormatter.allow(
-              RegExp("[a-z A-Z]"),
-            ),
+            FilteringTextInputFormatter.allow(RegExp("[a-z A-Z]")),
           if (digitsOnly == true) FilteringTextInputFormatter.digitsOnly,
+          if (doubleOnly == true)
+            FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,4}')),
         ],
         onTap: onTap,
         maxLength: maxLength,
@@ -86,8 +144,8 @@ class SimpleInputFieldWidget extends StatelessWidget {
           contentPadding: const EdgeInsets.symmetric(horizontal: 8),
           alignLabelWithHint: true,
           hintText: hintText,
-          counterText: '',
-          border: const OutlineInputBorder(),
+          // counterText: '',
+          border: removeBorder! ? null : const OutlineInputBorder(),
           hintStyle: const TextStyle(
             fontSize: 16.0,
             color: Color.fromARGB(255, 17, 17, 17),
