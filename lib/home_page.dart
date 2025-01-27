@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/screens/buttons_examples_screen.dart';
 import 'package:flutter_widgets/screens/simple_input_field_screen.dart';
+import 'package:flutter_widgets/widgets/buttons/simple_button_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -27,6 +29,21 @@ class HomePage extends StatelessWidget {
               );
             },
             child: const Text('Simple Input Field'),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SimpleButtonWidget(
+            label: 'Button Examples',
+            width: width * 0.4,
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => const ButtonsExamplesScreen(),
+                ),
+              );
+            },
           ),
         ],
       ),

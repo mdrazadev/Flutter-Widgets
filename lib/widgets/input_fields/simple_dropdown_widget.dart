@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 class SimpleDropdownWidget extends StatelessWidget {
   const SimpleDropdownWidget({
     super.key,
-    required this.device,
     required this.list,
     required this.value,
     this.width,
@@ -18,10 +17,6 @@ class SimpleDropdownWidget extends StatelessWidget {
   final double? width;
   final double? height;
   final FocusNode? focusNode;
-
-  /// if [device = 1], means device is a mobile.
-  /// if [device = 2], means device is a web.
-  final int device;
 
   @override
   Widget build(BuildContext context) {
