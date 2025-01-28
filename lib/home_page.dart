@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/screens/buttons_examples_screen.dart';
+import 'package:flutter_widgets/screens/extended_floating_btn_ex_screen.dart';
 import 'package:flutter_widgets/screens/floating_button_examples_screen.dart';
 import 'package:flutter_widgets/screens/simple_input_field_screen.dart';
 import 'package:flutter_widgets/widgets/buttons/simple_button_widget.dart';
@@ -20,8 +21,9 @@ class HomePage extends StatelessWidget {
           SizedBox(
             width: width,
           ),
-          ElevatedButton(
-            onPressed: () {
+          SimpleButtonWidget(
+            label: 'InputField Examples',
+            onPress: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -29,14 +31,12 @@ class HomePage extends StatelessWidget {
                 ),
               );
             },
-            child: const Text('Simple Input Field'),
           ),
           const SizedBox(
             height: 15,
           ),
           SimpleButtonWidget(
             label: 'Button Examples',
-            width: width * 0.4,
             onPress: () {
               Navigator.push(
                 context,
@@ -51,12 +51,25 @@ class HomePage extends StatelessWidget {
           ),
           SimpleButtonWidget(
             label: 'Floating Button Examples',
-            width: width * 0.5,
             onPress: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (ctx) => const FloatingButtonExamplesScreen(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SimpleButtonWidget(
+            label: 'Extended Floating Button Examples',
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => const ExtendedFloatingBtnExScreen(),
                 ),
               );
             },
