@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/screens/buttons_examples_screen.dart';
+import 'package:flutter_widgets/screens/floating_button_examples_screen.dart';
 import 'package:flutter_widgets/screens/simple_input_field_screen.dart';
 import 'package:flutter_widgets/widgets/buttons/simple_button_widget.dart';
 
@@ -41,6 +42,21 @@ class HomePage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (ctx) => const ButtonsExamplesScreen(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SimpleButtonWidget(
+            label: 'Floating Button Examples',
+            width: width * 0.5,
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => const FloatingButtonExamplesScreen(),
                 ),
               );
             },
