@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/widgets/bottom_bar/simple_bottom_bar_widget.dart';
+import 'package:flutter_widgets/screens/bottom_bars/custom_bottom_bar_screen.dart';
+import 'package:flutter_widgets/screens/bottom_bars/simple_bottom_bar_screen.dart';
 import 'package:flutter_widgets/widgets/buttons/simple_button_widget.dart';
 
 class BottomBarListScreen extends StatelessWidget {
@@ -19,12 +20,27 @@ class BottomBarListScreen extends StatelessWidget {
             width: width,
           ),
           SimpleButtonWidget(
-            label: 'Bottom Navbar Examples',
+            label: 'Simple Bottom Navbar',
             onPress: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (ctx) => const SimpleBottomBarWidget(),
+                  builder: (ctx) => const SimpleBottomBarScreen(),
+                ),
+              );
+            },
+          ),
+          SizedBox(
+            height: 15,
+            width: width,
+          ),
+          SimpleButtonWidget(
+            label: 'Custom Bottom Navbar',
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => const CustomBottomBarScreen(),
                 ),
               );
             },

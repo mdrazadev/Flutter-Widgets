@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SimpleBottomBarWidget extends StatefulWidget {
-  const SimpleBottomBarWidget({super.key});
+class CustomBottomBarScreen extends StatefulWidget {
+  const CustomBottomBarScreen({super.key});
 
   @override
-  State<SimpleBottomBarWidget> createState() => _SimpleBottomBarWidgetState();
+  State<CustomBottomBarScreen> createState() => _CustomBottomBarScreenState();
 }
 
-class _SimpleBottomBarWidgetState extends State<SimpleBottomBarWidget> {
+class _CustomBottomBarScreenState extends State<CustomBottomBarScreen> {
   int currentIndex = 0;
   List<Widget> pages = const [
     Center(child: Text('First Page')),
@@ -18,12 +18,14 @@ class _SimpleBottomBarWidgetState extends State<SimpleBottomBarWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Simple Bottombar'),
+        title: const Text('Custom Bottombar'),
         centerTitle: true,
       ),
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
         onTap: (index) {
           setState(() {
             currentIndex = index;
