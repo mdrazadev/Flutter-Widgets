@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/screens/bottom_bars/circular_bottom_bar_screen.dart';
 import 'package:flutter_widgets/screens/bottom_bars/custom_bottom_bar_screen.dart';
 import 'package:flutter_widgets/screens/bottom_bars/simple_bottom_bar_screen.dart';
 import 'package:flutter_widgets/widgets/buttons/simple_button_widget.dart';
@@ -41,6 +42,21 @@ class BottomBarListScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (ctx) => const CustomBottomBarScreen(),
+                ),
+              );
+            },
+          ),
+          SizedBox(
+            height: 15,
+            width: width,
+          ),
+          SimpleButtonWidget(
+            label: 'Circular Bottom Navbar',
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => const CircularBottomBarScreen(),
                 ),
               );
             },
