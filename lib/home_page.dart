@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/screens/bottom_bars/bottom_bar_list_screen.dart';
 import 'package:flutter_widgets/screens/buttons_examples_screen.dart';
 import 'package:flutter_widgets/screens/extended_floating_btn_ex_screen.dart';
 import 'package:flutter_widgets/screens/floating_button_examples_screen.dart';
@@ -70,6 +71,20 @@ class HomePage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (ctx) => const ExtendedFloatingBtnExScreen(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SimpleButtonWidget(
+            label: 'Bottom Navbar Examples',
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => const BottomBarListScreen(),
                 ),
               );
             },
