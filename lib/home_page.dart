@@ -4,6 +4,7 @@ import 'package:flutter_widgets/screens/buttons_examples_screen.dart';
 import 'package:flutter_widgets/screens/extended_floating_btn_ex_screen.dart';
 import 'package:flutter_widgets/screens/floating_button_examples_screen.dart';
 import 'package:flutter_widgets/screens/simple_input_field_screen.dart';
+import 'package:flutter_widgets/screens/snackbars_example_screen.dart';
 import 'package:flutter_widgets/widgets/buttons/simple_button_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -85,6 +86,20 @@ class HomePage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (ctx) => const BottomBarListScreen(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SimpleButtonWidget(
+            label: 'Sackbars Examples',
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => const SnackbarsExampleScreen(),
                 ),
               );
             },
