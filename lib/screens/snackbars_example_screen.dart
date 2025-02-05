@@ -9,12 +9,12 @@ class SnackbarsExampleScreen extends StatelessWidget {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(label),
-        // action: onUndo != null
-        //     ? SnackBarAction(
-        //         label: 'undo',
-        //         onPressed: onUndo,
-        //       )
-        //     : null,
+        action: onUndo != null
+            ? SnackBarAction(
+                label: 'undo',
+                onPressed: onUndo,
+              )
+            : null,
       ),
     );
   }
@@ -37,19 +37,19 @@ class SnackbarsExampleScreen extends StatelessWidget {
               showSnackbar(context, "This is simple snackbar");
             },
           ),
-          // const SizedBox(
-          //   height: 15,
-          // ),
-          // SimpleButtonWidget(
-          //   label: 'Snackbar with UNDO',
-          //   onPress: () {
-          //     showSnackbar(
-          //       context,
-          //       "Snackbar with undo",
-          //       onUndo: () {},
-          //     );
-          //   },
-          // ),
+          const SizedBox(
+            height: 15,
+          ),
+          SimpleButtonWidget(
+            label: 'Snackbar with UNDO',
+            onPress: () {
+              showSnackbar(
+                context,
+                "Snackbar with undo",
+                onUndo: () {},
+              );
+            },
+          ),
           // const SizedBox(
           //   height: 15,
           // ),
