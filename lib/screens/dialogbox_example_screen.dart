@@ -22,6 +22,16 @@ class DialogboxExampleScreen extends StatelessWidget {
               MyDialogboxes.simpleDialogbox(context);
             },
           ),
+          const SizedBox(
+            height: 15,
+            width: double.infinity,
+          ),
+          SimpleButtonWidget(
+            label: 'Alert dialogbox',
+            onPress: () {
+              MyDialogboxes.alertDialogbox(context);
+            },
+          ),
         ],
       ),
     );
@@ -43,6 +53,27 @@ class MyDialogboxes {
               SimpleDialogOption(
                 onPressed: () {},
                 child: const Text('I am learning flutter.'),
+              ),
+            ],
+          );
+        });
+  }
+
+  static alertDialogbox(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Alert Dialogbox'), //optional
+            content: const Text('This is a alert dialog box'),
+            actions: [
+              TextButton(
+                onPressed: () {},
+                child: const Text('CANCEL'),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const Text('ACCEPT'),
               ),
             ],
           );
