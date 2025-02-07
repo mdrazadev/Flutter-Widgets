@@ -32,6 +32,20 @@ class DialogboxExampleScreen extends StatelessWidget {
               MyDialogboxes.alertDialogbox(context);
             },
           ),
+          const SizedBox(
+            height: 15,
+            width: double.infinity,
+          ),
+          SimpleButtonWidget(
+            label: 'Custom dialogbox',
+            onPress: () {
+              MyDialogboxes.customDialogbox(
+                context,
+                const Text('This is a custom dialog box.'),
+                isDismissible: false,
+              );
+            },
+          ),
         ],
       ),
     );
@@ -68,11 +82,42 @@ class MyDialogboxes {
             content: const Text('This is a alert dialog box'),
             actions: [
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 child: const Text('CANCEL'),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('ACCEPT'),
+              ),
+            ],
+          );
+        });
+  }
+
+  static customDialogbox(BuildContext context, Widget content,
+      {bool isDismissible = true}) {
+    return showDialog(
+        context: context,
+        barrierDismissible: isDismissible,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Custom Dialogbox'), //optional
+            content: content,
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('CANCEL'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 child: const Text('ACCEPT'),
               ),
             ],
