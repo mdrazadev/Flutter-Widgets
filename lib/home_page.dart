@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/screens/bottom_bars/bottom_bar_list_screen.dart';
 import 'package:flutter_widgets/screens/buttons_examples_screen.dart';
+import 'package:flutter_widgets/screens/calendar_example_screen.dart';
 import 'package:flutter_widgets/screens/cards_examples_screen.dart';
 import 'package:flutter_widgets/screens/dialogbox_example_screen.dart';
 import 'package:flutter_widgets/screens/extended_floating_btn_ex_screen.dart';
@@ -130,6 +131,20 @@ class HomePage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (ctx) => const CardsExamplesScreen(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SimpleButtonWidget(
+            label: 'Calendar',
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => const CalendarExampleScreen(),
                 ),
               );
             },
