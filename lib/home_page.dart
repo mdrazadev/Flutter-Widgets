@@ -26,131 +26,43 @@ class HomePage extends StatelessWidget {
           SizedBox(
             width: width,
           ),
-          SimpleButtonWidget(
-            label: 'InputField Examples',
-            onPress: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (ctx) => SimpleInputFieldScreen(),
-                ),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          SimpleButtonWidget(
-            label: 'Button Examples',
-            onPress: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (ctx) => const ButtonsExamplesScreen(),
-                ),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          SimpleButtonWidget(
-            label: 'Floating Button Examples',
-            onPress: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (ctx) => const FloatingButtonExamplesScreen(),
-                ),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          SimpleButtonWidget(
-            label: 'Extended Floating Button Examples',
-            onPress: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (ctx) => const ExtendedFloatingBtnExScreen(),
-                ),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          SimpleButtonWidget(
-            label: 'Bottom Navbar Examples',
-            onPress: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (ctx) => const BottomBarListScreen(),
-                ),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          SimpleButtonWidget(
-            label: 'Sackbars Examples',
-            onPress: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (ctx) => const SnackbarsExampleScreen(),
-                ),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          SimpleButtonWidget(
-            label: 'Dialogbox Examples',
-            onPress: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (ctx) => const DialogboxExampleScreen(),
-                ),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          SimpleButtonWidget(
-            label: 'Cards Examples',
-            onPress: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (ctx) => const CardsExamplesScreen(),
-                ),
-              );
-            },
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          SimpleButtonWidget(
-            label: 'Calendar',
-            onPress: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (ctx) => const CalendarExampleScreen(),
-                ),
-              );
-            },
-          ),
+          itemWidget(context, 'InputField Examples', SimpleInputFieldScreen()),
+          itemWidget(context, 'Button Examples', const ButtonsExamplesScreen()),
+          itemWidget(context, 'Floating Button Examples',
+              const FloatingButtonExamplesScreen()),
+          itemWidget(context, 'Extended Floating Button Examples',
+              const ExtendedFloatingBtnExScreen()),
+          itemWidget(
+              context, 'Bottom Navbar Examples', const BottomBarListScreen()),
+          itemWidget(
+              context, 'Sackbars Examples', const SnackbarsExampleScreen()),
+          itemWidget(
+              context, 'Dialogbox Examples', const DialogboxExampleScreen()),
+          itemWidget(context, 'Cards Examples', const CardsExamplesScreen()),
+          itemWidget(context, 'Calendar', const CalendarExampleScreen()),
         ],
       ),
+    );
+  }
+
+  Widget itemWidget(BuildContext context, String label, Widget page) {
+    return Column(
+      children: [
+        const SizedBox(
+          height: 15,
+        ),
+        SimpleButtonWidget(
+          label: label,
+          onPress: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (ctx) => page,
+              ),
+            );
+          },
+        ),
+      ],
     );
   }
 }
