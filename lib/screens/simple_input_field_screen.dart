@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/widgets/input_fields/date_input_field_widget.dart';
 import 'package:flutter_widgets/widgets/input_fields/icons_input_field_widget.dart';
 import 'package:flutter_widgets/widgets/input_fields/simple_input_field_widget.dart';
 
@@ -10,6 +11,7 @@ class SimpleInputFieldScreen extends StatelessWidget {
   final TextEditingController controller3 = TextEditingController();
   final TextEditingController controller4 = TextEditingController();
   final TextEditingController controller5 = TextEditingController();
+  final TextEditingController controller6 = TextEditingController();
 
   final FocusNode focusNode1 = FocusNode();
   final FocusNode focusNode2 = FocusNode();
@@ -64,6 +66,13 @@ class SimpleInputFieldScreen extends StatelessWidget {
                 suffixIcon: Icons.delete,
                 suffixColor: Colors.red,
                 onSuffixPress: () => controller5.clear(),
+              ),
+              SizedBox(height: ht * 0.02),
+              DateInputFieldWidget(
+                controller: controller6,
+                label: 'Select Date',
+                suffixIcon: Icons.calendar_month,
+                suffixColor: Colors.blueAccent,
               ),
             ],
           ),

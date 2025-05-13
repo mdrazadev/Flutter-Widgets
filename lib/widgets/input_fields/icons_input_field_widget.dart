@@ -7,7 +7,7 @@ class IconsInputFieldWidget extends StatelessWidget {
     required this.label,
     this.focusNode,
     this.length,
-    this.wt = 350,
+    this.wt,
     this.radius = 8,
     this.keyboardType = TextInputType.text,
     this.prefixIcon,
@@ -24,7 +24,7 @@ class IconsInputFieldWidget extends StatelessWidget {
   final String label;
   final FocusNode? focusNode;
   final int? length;
-  final double wt;
+  final double? wt;
   final double radius;
   final TextInputType keyboardType;
   final IconData? prefixIcon;
@@ -39,7 +39,7 @@ class IconsInputFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: wt,
+      width:  wt ?? MediaQuery.of(context).size.width,
       child: TextFormField(
         controller: controller,
         focusNode: focusNode,
