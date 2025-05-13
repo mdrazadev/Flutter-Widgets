@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/widgets/input_fields/icons_input_field_widget.dart';
 import 'package:flutter_widgets/widgets/input_fields/simple_input_field_widget.dart';
 
 class SimpleInputFieldScreen extends StatelessWidget {
@@ -8,6 +9,7 @@ class SimpleInputFieldScreen extends StatelessWidget {
   final TextEditingController controller2 = TextEditingController();
   final TextEditingController controller3 = TextEditingController();
   final TextEditingController controller4 = TextEditingController();
+  final TextEditingController controller5 = TextEditingController();
 
   final FocusNode focusNode1 = FocusNode();
   final FocusNode focusNode2 = FocusNode();
@@ -53,6 +55,15 @@ class SimpleInputFieldScreen extends StatelessWidget {
                 controller: controller4,
                 obscureCharacter: "@",
                 isPassword: true,
+              ),
+              SizedBox(height: ht * 0.02),
+              IconsInputFieldWidget(
+                label: 'Hint Text',
+                controller: controller5,
+                prefixIcon: Icons.ac_unit,
+                suffixIcon: Icons.delete,
+                suffixColor: Colors.red,
+                onSuffixPress: () => controller5.clear(),
               ),
             ],
           ),
