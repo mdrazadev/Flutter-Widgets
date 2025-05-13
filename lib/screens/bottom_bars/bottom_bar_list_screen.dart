@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/screens/bottom_bars/center_btn_bottom_bar_screen.dart';
 import 'package:flutter_widgets/screens/bottom_bars/circular_bottom_bar_screen.dart';
 import 'package:flutter_widgets/screens/bottom_bars/custom_bottom_bar_screen.dart';
 import 'package:flutter_widgets/screens/bottom_bars/simple_bottom_bar_screen.dart';
@@ -31,10 +32,7 @@ class BottomBarListScreen extends StatelessWidget {
               );
             },
           ),
-          SizedBox(
-            height: 15,
-            width: width,
-          ),
+          const SizedBox(height: 15),
           SimpleButtonWidget(
             label: 'Custom Bottom Navbar',
             onPress: () {
@@ -46,10 +44,7 @@ class BottomBarListScreen extends StatelessWidget {
               );
             },
           ),
-          SizedBox(
-            height: 15,
-            width: width,
-          ),
+          const SizedBox(height: 15),
           SimpleButtonWidget(
             label: 'Circular Bottom Navbar',
             onPress: () {
@@ -57,6 +52,18 @@ class BottomBarListScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (ctx) => const CircularBottomBarScreen(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 15),
+          SimpleButtonWidget(
+            label: 'Center Btn Bottom Navbar',
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => const CenterBtnBottomBarScreen(),
                 ),
               );
             },
